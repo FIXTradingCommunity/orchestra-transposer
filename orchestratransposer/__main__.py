@@ -33,29 +33,22 @@ def init_argparse() -> argparse.ArgumentParser:
 
 def main() -> None:
     """
-usage: orchestratransposer.py [OPTION]...
+usage: python -m orchestratransposer [OPTION]...
 
 Convert an Orchestra XML file to or from another schema
 
 positional arguments:
-  input                 Name of a input file(s)
+  input                 Name of input file(s)
 
-optional arguments:
+options:
   -h, --help            show this help message and exit
   -v, --version         show program's version number and exit
-  -o OUTPUT, --output OUTPUT
-                        name of output file
-  -p OUTPUT2, --outPut2 OUTPUT2
-                        name of second output file (phrases file for Unified
-                        Repository)
-  -f {orch,unif,sbe}, --from {orch,unif,sbe}
-                        format of source file: Orchestra 1.0, Unified
-                        Repository, or SBE 1.0
-  -t {orch,unif,sbe}, --to {orch,unif,sbe}
-                        format of output file: Orchestra 1.0, Unified
-                        Repository, or SBE 1.0
-
-  Log messages are written to a file with the same path as the output file but with '.log' extension.
+  -o, --output OUTPUT [OUTPUT ...]
+                        name of output file(s)
+  -f, --from {orch,unif,sbe,sbe2}
+                        format of source file: Orchestra 1.0, Unified Repository, or SBE 1.0
+  -t, --to {orch,unif,sbe,sbe2}
+                        format of output file: Orchestra 1.0, Unified Repository, or SBE 1.0
     """
     parser = init_argparse()
     args = parser.parse_args()

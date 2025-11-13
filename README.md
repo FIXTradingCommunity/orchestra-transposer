@@ -60,21 +60,21 @@ A command line interface is provided by script `orchestratransposer.py`.
 The arguments are patterned after Pandoc.
 
 ```
-usage: orchestratransposer.py [OPTION]...
+usage: python -m orchestratransposer [OPTION]...
 
 Convert an Orchestra XML file to or from another schema
 
 positional arguments:
   input                 Name of input file(s)
 
-optional arguments:
+options:
   -h, --help            show this help message and exit
   -v, --version         show program's version number and exit
-  -o OUTPUT [OUTPUT ...], --output OUTPUT [OUTPUT ...]
+  -o, --output OUTPUT [OUTPUT ...]
                         name of output file(s)
-  -f {orch,unif,sbe}, --from {orch,unif,sbe}
+  -f, --from {orch,unif,sbe,sbe2}
                         format of source file: Orchestra 1.0, Unified Repository, or SBE 1.0
-  -t {orch,unif,sbe}, --to {orch,unif,sbe}
+  -t, --to {orch,unif,sbe,sbe2}
                         format of output file: Orchestra 1.0, Unified Repository, or SBE 1.0
 ```
 
@@ -82,13 +82,13 @@ Log messages are written to a file with the same path as the output file but wit
 
 First example translates an Orchestra file to SBE.
 ```
-python3 orchestratransposer.py tests/xml/OrchestraFIXLatest.xml --to sbe -o sbe_test.xml
+python3 -m orchestratransposer tests/xml/OrchestraFIXLatest.xml --to sbe -o sbe_test.xml
 ```
 
 Second example translates an Orchestra file to a Unified Repository
 Two file names needed, starting with the name of the repository file.
 ```
-python3 orchestratransposer.py tests/xml/OrchestraFIXLatest.xml --to unif -o Repository.xml Phrases.xml
+python3 -m orchestratransposer tests/xml/OrchestraFIXLatest.xml --to unif -o Repository.xml Phrases.xml
 ```
 
 ## License
