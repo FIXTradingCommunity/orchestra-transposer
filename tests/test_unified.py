@@ -43,15 +43,15 @@ def test_to_fix_no_version_dict():
 
 def test_phrases_valid():
     unified = UnifiedPhrases()
-    xml_path = os.path.join(XML_FILE_DIR, 'FIX.Latest_EP269_en_phrases.xml')
+    xml_path = os.path.join(XML_FILE_DIR, 'FixPhrases.xml')
     errors = unified.validate(xml_path)
     assert not errors
 
 
 def test_phrases_to_dict():
     unified = UnifiedPhrases()
-    xml_path = os.path.join(XML_FILE_DIR, 'FIX.Latest_EP269_en_phrases.xml')
-    output_path = os.path.join(output_dir(), 'FIX.Latest_EP269_en_phrases-dict.txt')
+    xml_path = os.path.join(XML_FILE_DIR, 'FixPhrases.xml')
+    output_path = os.path.join(output_dir(), 'FixPhrases-dict.txt')
     with open(output_path, 'w') as f:
         (instance, errors) = unified.read_xml(xml_path)
         instance.append_documentation('FIELD_9999', [('SYNOPSIS', 'Test documentation'),
@@ -65,7 +65,7 @@ def test_phrases_to_dict():
 
 def test_text_id():
     unified = UnifiedPhrases()
-    xml_path = os.path.join(XML_FILE_DIR, 'FIX.Latest_EP269_en_phrases.xml')
+    xml_path = os.path.join(XML_FILE_DIR, 'FixPhrases.xml')
     (instance, errors) = unified.read_xml(xml_path)
     assert not errors
     t = instance.text_id('FIELD_41163')
@@ -98,7 +98,7 @@ def test_to_from_dict():
 def test_unified_to_dict():
     unified = Unified()
     xml_path = os.path.join(XML_FILE_DIR, 'FixRepository.xml')
-    phrases_xml_path = os.path.join(XML_FILE_DIR, 'FIX.Latest_EP269_en_phrases.xml')
+    phrases_xml_path = os.path.join(XML_FILE_DIR, 'FixPhrases.xml')
     output_path = os.path.join(output_dir(), 'FixRepository-phrases-dict.txt')
     with open(output_path, 'w') as f:
         (instance, errors) = unified.read_xml_all(xml_path, phrases_xml_path)
