@@ -94,7 +94,8 @@ python3 -m orchestratransposer tests/xml/OrchestraFIXLatest.xml --from orch --to
 Third example translates a Unified Repository to an Orchestra file
 Two file names needed, starting with the name of the repository file.
 ```
-python3 -m orchestratransposer tests/xml/FixRepository.xml tests/xml/FixPhrases_en.xml --from unif --t orch -o OrchestraFIXLatest.xml```
+python3 -m orchestratransposer tests/xml/FixRepository.xml tests/xml/FixPhrases_en.xml --from unif --t orch -o OrchestraFIXLatest.xml
+```
 
 ## License
 
