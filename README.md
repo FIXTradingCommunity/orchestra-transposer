@@ -1,8 +1,8 @@
 # orchestra-transposer
 
-Converts between a FIX Orchestra file and other artifacts.
+Converts between an Orchestra file and other artifacts.
 
-The initial implementation converts between Orchestra version 1.0 and these other XML schemas:
+The implementation converts between Orchestra version 1.0 and these other XML schemas:
 * Simple Binary Encoding (SBE) version 1.0
 * FIX Unified Repository 2010 Edition
 
@@ -82,18 +82,23 @@ Log messages are written to a file with the same path as the output file but wit
 
 First example translates an Orchestra file to SBE.
 ```
-python3 -m orchestratransposer tests/xml/OrchestraFIXLatest.xml --to sbe -o sbe_test.xml
+python3 -m orchestratransposer tests/xml/OrchestraFIXLatest.xml --from orch --to sbe -o sbe_test.xml
 ```
 
 Second example translates an Orchestra file to a Unified Repository
 Two file names needed, starting with the name of the repository file.
 ```
-python3 -m orchestratransposer tests/xml/OrchestraFIXLatest.xml --to unif -o Repository.xml Phrases.xml
+python3 -m orchestratransposer tests/xml/OrchestraFIXLatest.xml --from orch --to unif -o FixRepository.xml FixPhrases_en.xml
 ```
+
+Third example translates a Unified Repository to an Orchestra file
+Two file names needed, starting with the name of the repository file.
+```
+python3 -m orchestratransposer tests/xml/FixRepository.xml tests/xml/FixPhrases_en.xml --from unif --t orch -o OrchestraFIXLatest.xml```
 
 ## License
 
-© Copyright 2025 FIX Protocol Limited
+© Copyright 2026 FIX Protocol Limited
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
